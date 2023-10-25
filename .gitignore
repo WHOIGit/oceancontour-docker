@@ -1,0 +1,7 @@
+config
+demo
+vol
+workspace
+licence_info.txt
+*.lic
+*.tar.gz
