@@ -13,15 +13,16 @@ In order to process files, OceanContour requires your software to associated wit
  4. once your licence is activated, close OceanContour. You should be back in the container's shell
  5. Copy the licence file out of the container: `cp ~/OIContour/.metadata/OceanContour.lic vol/`
  6. Add the extracted licence into your docker images or containers
-    a) build a new image with the licence: `built -t oceancontour --build-arg LICENCE your/OceanContour.lic .`
-    b) mount your licence into your containers at runtime by editing the .sh files with `-v your/OceanContour.lic:/root/OIContour/.metadata/OceanContour.lic`
+    * build a new image with the licence: `built -t oceancontour --build-arg LICENCE your/OceanContour.lic .`
+    * mount your licence into your containers at runtime by editing the .sh files with `-v your/OceanContour.lic:/root/OIContour/.metadata/OceanContour.lic`
 
  NOTE: Licences are validated against your "hardware". When activated in a docker container, one of the variables it listens to is your containers *hostname*. Once you have activated a licence, make sure that your subsequently run containers have the same hostname. This repo's scripts when doing `docker run` consistently defaults to using `-h oceancontour-container` for this reason.
 
 ## Scripts
-- OceanContour-auto.sh
-- OceanContour-combo.sh
-- OceanContour-gui.sh
+- `OceanContour-auto.sh` - Accepts 3 parameters: rawdata file, parameter file, target output .nc file
+- `OceanContour-combo.sh` - Accepts 4 parameters: rawdata file, wave parameter file, burst/current averaging parameter file, target combined .nc output file
+- `OceanContour-gui.sh` - container with X11 socket passthrough and workspace volume mount. Allows OceanContour to be displayed graphically on your screen. (Linux Only)
+- `OceanContour-sshXgui.sh` - PENDING as above, but for when using `ssh -X` to access the docker host machine. 
 
 
 
