@@ -45,7 +45,6 @@ def paramfile_overwrite_sectionautonomous(paramfile_in, paramfile_out, project, 
 
 
 def rawfile_checkfor_header(rawfile_in, rawfile_out=None, headerfile=None):
-    # TODO test this works
     if rawfile_out is None:
         rawfile_out = os.path.splitext(rawfile_in)[0]+'.auto'
     HEADTAG = b'\xa5\n\xa0\x10\xc5\x0f\x14\xe6\xaa\xc6\x10GETCLOCKSTR'

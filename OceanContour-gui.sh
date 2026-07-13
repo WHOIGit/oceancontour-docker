@@ -2,7 +2,7 @@
 
 set -eux
 
-if [ ! -d "workspace/.meta/.projects" ]; then
+if [ ! -f "workspace/.meta/.projects" ]; then
     unzip "workspace-init.zip"
 fi
 
@@ -12,7 +12,7 @@ if [ "$1" = "bash" ]; then
 fi
 
 docker run -h oceancontour-container \
-    -v "$(pwd):/app/vol" \
+    -v "$(pwd)/vol:/app/vol" \
     -v "$(pwd)/workspace:/app/workspace" \
     -v "/tmp/.X11-unix:/tmp/.X11-unix" -e DISPLAY="$DISPLAY" \
     --rm -it oceancontour $CMD
